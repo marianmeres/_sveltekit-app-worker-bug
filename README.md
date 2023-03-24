@@ -75,3 +75,4 @@ rendering chunks (12)...The emitted file "vite-manifest.json" overwrites a previ
 .svelte-kit/output/client/_app/immutable/entry/start.b4dfaf13.js            23.31 kB │ gzip: 9.27 kB
 ✓ built in 243ms
 ```
+The above terminal process never finishes...
