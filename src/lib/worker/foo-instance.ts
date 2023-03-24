@@ -1,0 +1,1 @@
+export const fooInstance = new Worker(new URL('./foo', import.meta.url));
