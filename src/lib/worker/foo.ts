@@ -1,3 +1,1 @@
-self.addEventListener('message', (message) => {
-    console.log(message.data);
-});
+self.addEventListener('message', (message) => console.log(message.data));

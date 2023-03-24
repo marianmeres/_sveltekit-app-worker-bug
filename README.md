@@ -17,8 +17,26 @@ This is a template app built with `npm create svelte@latest`, with:
 `npm run dev` works as expected
 
 `npm run build` shows (maybe innocent) `The emitted file "vite-manifest.json" overwrites a previously emitted file of the same name.` 
-and **eventually hangs** after success message `✓ built in Xms`, more detail:
+and **eventually hangs** after success message `✓ built in Xms`.
 
+## Gist
+
+```javascript
+// $lib/worker/foo.ts
+self.addEventListener('message', (message) => console.log(message.data));
+
+// $lib/worker/foo-instance.ts
+export const fooInstance = new Worker(new URL('./foo', import.meta.url));
+
+// +page.svelte
+<button on:click={async () => {
+  const { fooInstance } = (await import("$lib/worker/foo-instance"));
+  fooInstance.postMessage(Math.random());
+}}>test worker</button>
+
+```
+
+## Full build log
 ```bash
 $ npm run build
 
